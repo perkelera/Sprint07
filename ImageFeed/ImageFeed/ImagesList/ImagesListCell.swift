@@ -4,7 +4,6 @@
 //
 //  Created by никита  on 01.07.2026.
 //
-
 import Foundation
 import UIKit
 final class ImagesListCell: UITableViewCell {
@@ -13,3 +12,4 @@ final class ImagesListCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var cellImage: UIImageView!
 }
+
