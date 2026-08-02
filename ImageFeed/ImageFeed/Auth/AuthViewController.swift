@@ -41,7 +41,7 @@ final class AuthViewController: UIViewController {
 extension AuthViewController: WebViewViewControllerDelegate {
     func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
         vc.dismiss(animated: true)
-        OAuth2Service.shared.fetchOAuthToken(code: code) { result in
+        OAuth2Service.shared.fetchAuthToken(code: code) { result in
                     switch result {
                     case.success(let token):
                         print("✅ Token received: \(token)")
