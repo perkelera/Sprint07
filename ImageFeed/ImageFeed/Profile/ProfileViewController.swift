@@ -78,8 +78,10 @@ final class ProfileViewController: UIViewController {
         self.descriptionLabel = label
     }
     private func addLogoutButton() {
-        let button = UIButton.systemButton(with: UIImage( systemName: "ipad.and.arrow.forward")!, target: self, action: #selector(Self.didTapLogoutButton)
-        )
+        guard let image = UIImage(systemName: "ipad.and.arrow.forward") else {
+            return
+        }
+        let button = UIButton.systemButton(with: image, target: self, action: #selector(Self.didTapLogoutButton))
         button.tintColor = .red
         button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)

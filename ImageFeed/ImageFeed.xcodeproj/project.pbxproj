@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3A5445BA3016AC46005B6E27 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A5445B93016AC46005B6E27 /* WebKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		113066932FF2D389002DC922 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,10 +31,11 @@
 		1130667C2FF2D386002DC922 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		113066922FF2D389002DC922 /* ImageFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1130669C2FF2D389002DC922 /* ImageFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5445B93016AC46005B6E27 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		113066A42FF2D389002DC922 /* Exceptions for "ImageFeed" folder in "ImageFeed" target */ = {
+		3A36093530169FAC002DE579 /* Exceptions for "ImageFeed" folder in "ImageFeed" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -43,7 +48,7 @@
 		1130667E2FF2D386002DC922 /* ImageFeed */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				113066A42FF2D389002DC922 /* Exceptions for "ImageFeed" folder in "ImageFeed" target */,
+				3A36093530169FAC002DE579 /* Exceptions for "ImageFeed" folder in "ImageFeed" target */,
 			);
 			path = ImageFeed;
 			sourceTree = "<group>";
@@ -65,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5445BA3016AC46005B6E27 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +97,7 @@
 				1130667E2FF2D386002DC922 /* ImageFeed */,
 				113066952FF2D389002DC922 /* ImageFeedTests */,
 				1130669F2FF2D389002DC922 /* ImageFeedUITests */,
+				3A5445B83016AC46005B6E27 /* Frameworks */,
 				1130667D2FF2D386002DC922 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +110,14 @@
 				1130669C2FF2D389002DC922 /* ImageFeedUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3A5445B83016AC46005B6E27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A5445B93016AC46005B6E27 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,11 +302,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2S3D6VL49Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImageFeed/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ImageFeed;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -303,8 +320,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.perkelera.ImageFeed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.imagefeed9598;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -322,11 +340,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2S3D6VL49Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ImageFeed/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ImageFeed;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -338,8 +358,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.yandex.perkelera.ImageFeed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.imagefeed9598;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
