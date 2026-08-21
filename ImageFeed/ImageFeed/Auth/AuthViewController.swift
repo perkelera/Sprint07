@@ -8,8 +8,6 @@
 import UIKit
 import ProgressHUD
 
-import UIKit
-
 protocol AuthViewControllerDelegate: AnyObject {
     func didAuthenticate(_ vc: AuthViewController)
 }

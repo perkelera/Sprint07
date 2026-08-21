@@ -30,7 +30,7 @@ final class ProfileViewController: UIViewController {
         if let profile = ProfileService.shared.profile {
             updateProfileDetails(profile: profile)
         }
-        ()
+        updateAvatar()
     }
     deinit {
         removeObserver()
@@ -60,7 +60,7 @@ final class ProfileViewController: UIViewController {
             let imageUrl = URL(string: profileImageURL)
         else { return }
         
-        let placeholderImage = UIImage(systemName: "person.circle.fill")?
+        let placeholderImage = UIImage(systemName: "person.crop.circle.fill")?
             .withTintColor(.lightGray, renderingMode: .alwaysOriginal)
             .withConfiguration(UIImage.SymbolConfiguration(pointSize: 70, weight: .regular, scale: .large))
         
@@ -84,8 +84,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func addAvatarImageView() {
-        let profileImage = UIImage(named: "Photo") ?? UIImage(systemName: "person.crop.circle.fill")
-        let imageView = UIImageView(image: profileImage)
+        let imageView = UIImageView()
         imageView.tintColor = .gray
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 35
