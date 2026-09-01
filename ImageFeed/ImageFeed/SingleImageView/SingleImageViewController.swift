@@ -6,20 +6,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class SingleImageViewController: UIViewController {
-    var image: UIImage? {
-        didSet {
-            guard isViewLoaded else { return }
-            guard let image = image else { return }
-            imageView.image = image
-            rescaleAndCenterImageInScrollView(image: image)
-        }
-    }
+    var fullImageURL: URL?
     @IBAction private func didTapBackButton(_ sender: UIButton) {dismiss(animated: true)
     }
     @IBAction func didTapShareButton(_ sender: UIButton) {
-        guard let image else { return }
+        guard let image = imageView.image else { return }
         let share = UIActivityViewController(
             activityItems: [image],
             applicationActivities: nil
@@ -32,10 +26,19 @@ final class SingleImageViewController: UIViewController {
         super.viewDidLoad()
         scrollView.minimumZoomScale = 0.1
         scrollView.maximumZoomScale = 1.25
-        if let image = image {
-            imageView.image = image
-            rescaleAndCenterImageInScrollView(image: image)
+        guard let fullImageURL else { return }
+        UIBlockingProgressHUD.show()
+        imageView.kf.setImage(with: fullImageURL) { [weak self] result in
+            UIBlockingProgressHUD.dismiss()
+            guard let self = self else { return }
+            switch result {
+            case .success(let imageResult):
+                self.rescaleAndCenterImageInScrollView(image: imageResult.image)
+            case .failure:
+                self.showError()
+            }
         }
+        
     }
     private func rescaleAndCenterImageInScrollView(image: UIImage) {
         view.layoutIfNeeded()
@@ -54,6 +57,18 @@ final class SingleImageViewController: UIViewController {
         let y = (newContentSize.height - visibleRectSize.height) / 2
         scrollView.setContentOffset(CGPoint(x: x, y: y), animated: false)
     }
+    private func showError() {
+        let alert = UIAlertController(
+            title: "Что-то пошло не так(",
+            message: "Попробовать ещё раз?",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Не надо", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Повторить", style: .default) { [weak self] _ in
+            self?.viewDidLoad()
+        })
+        present(alert, animated: true)
+    }
 }
 
 extension SingleImageViewController: UIScrollViewDelegate {
@@ -61,3 +76,4 @@ extension SingleImageViewController: UIScrollViewDelegate {
         return imageView
     }
 }
+

@@ -41,6 +41,9 @@ final class ProfileImageService {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
     }
+    func clearAvatarURL() {
+        avatarURL = nil
+    }
     func fetchProfileImageURL(username: String, _ completion: @escaping (Result<String, Error>) -> Void) {
         if task != nil {
             if lastUsername != username {
