@@ -25,6 +25,9 @@ final class ProfileService {
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
     }
+    func clearProfile() {
+        profile = nil
+    }
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         assert(Thread.isMainThread)
         
